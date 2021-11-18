@@ -1,0 +1,12 @@
+# A sample package for security tool evaluation.
+#			2021/11/18 Tony @ JFrog Japan
+
+This program is written in C and deployed in the docker image.
+That gets an argument as (an) arbitray file or directory name(s) and calls system() with "ls " + the argument.
+
+$ docker run -it --rm c_server /
+
+This has the typically command injection vulnerability (and so on).
+
+$ docker run -it --rm c_server "/ ; cat /etc/passwd"
+
